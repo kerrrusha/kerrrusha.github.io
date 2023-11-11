@@ -1,171 +1,46 @@
 <!DOCTYPE html>
-<html>
- <head>
-	<meta charset="utf-8">
-	<title>Макет Бригади Коваль-Музика-Папка-Соболевський</title>
-	<style>
-		.labbutons {
-			height:60px;
-			width:145px;
-			text-align: center;
-			font-size: 14pt;	
-		}
-		body
-	    {
-			background-color: #F5F7C3; /* Цвет фона веб-страницы */
-	    } 
-		input[type=button] 
-		{
-			height:55px;width:346px; 		
-			/*стиль кнопки*/
-			word-wrap: break-word; 
-			font-size: smaller;	
-		}
-	</style>
- </head>
- <body>	
-	<h1 style="text-align: center; font-size: 16pt; font-weight: bold;"> 
-		ЗВІТИ  З ЛАБОРАТОРНИХ РОБІТ
-		З ДИСЦИПЛІНИ «ІНТЕРНЕТ-ТЕХНОЛОГІЇ ТА ПРОЕКТУВАННЯ WEB-ЗАСТОСУВАНЬ»
-	</h1>
-	<h2 style="text-align: left; font-size: 14pt; font-weight: bold;">
-		БРИГАДА №2,	студенти групи ІС-02:
-	</h2>
-	<table align="center">
-	   <tr>
-		<th><img src="images/we/коваль.jpg" alt="Коваль К" hspace="20px" vspace= "5px" height="125px"></th>
-		<th><img src="images/we/музика.jpg" alt="Музика С" hspace="20px" vspace= "5px" height="125px"></th>
-		<th><img src="images/we/папка.jpg" alt="Папка О" hspace="20px" vspace= "5px" height="125px"></th>
-		<th><img src="images/we/соболевський.jpg" alt="Соболевський Г" hspace="20px" vspace= "5px" height="125px"></th>
-	   </tr>
-	   <tr style="margin-left: -35px; font-size: 14pt; font-weight: normal;">
-		<td>Коваль Кирило</td>
-		<td>Музика Стефан</td>
-		<td>Папка Олег</td>
-		<td>Соболевський Гліб</td>
-	   </tr>	
-	  <table width="35%"  cellpadding="5" cellspacing="0">
-		   <tr>
-			<th><button onclick="labButtonClick(1)" class="labbutons">Лабораторна робота №1</button></th>
-			<th><button onclick="labButtonClick(2)" class="labbutons">Лабораторна робота №2</button></th>
-			<th><button onclick="labButtonClick(3)" class="labbutons">Лабораторна робота №3</button></th>
-			<th><button onclick="labButtonClick(4)" class="labbutons">Лабораторна робота №4</button></th>
-			<th><button onclick="labButtonClick(5)" class="labbutons">Лабораторна робота №5</button></th>
-			<th><button onclick="labButtonClick(6)" class="labbutons">Лабораторна робота №6</button></th>
-			<th><button onclick="labButtonClick(7)" class="labbutons">Лабораторна робота №7</button></th>
-			<th><button onclick="labButtonClick(8)" class="labbutons">Лабораторна робота №8</button></th>
-			<th><button onclick="labButtonClick(9)" class="labbutons">Лабораторна робота №9</button></th>
-			<th><button onclick="window.location.replace('http://localhost');" class="labbutons" style="border-radius: 10px; background: linear-gradient(to right, #F6EFD2, #CEAD78);">САЙТ</button></th>
-		   </tr>
-	  </table>
-	  <table width="95%" border="1px" cellpadding="5" cellspacing="0" bgcolor="FFFFFF">
-		   <tr>
-			<td width="350" height = "800" valign="top" bgcolor="#f0f0f0" id="container">
-			</td>
-			<td valign="middle" id="infoutput"><output>Місце для виведення інформації</output></div></td>
-		   </tr>
-	</table>
-	
-	<script>
-		var current_lab;
-		var button_amount = 0;
-		
-		function labButtonClick (i){
-			document.getElementById("infoutput").innerHTML = "Оберіть, що ви хочете переглянути з лабораторної роботи №"+i+"...";
-			current_lab = i;
-			let val = [];
-			var k;
-			//Очистка
-			//document.getElementById("container").innerHTML = "";
-			for(k=0;k<2*button_amount; k++){
-				var elem = container.lastChild;
-				elem.parentNode.removeChild(elem);
-			}
-			for(k=0;k<val.length; k++){
-				val.pop();
-			}
-			let labbutton = [];
-			switch(current_lab){
-				case 1:
-					labbutton.push('Опис предметного середовища', 'Тема/Мета/Місце розташування ЛР', 'HTML-КОД сторінки', 'HTML-КОД таблиць', 'HTML-КОД форми', 'HTML-КОД зображення', 'Висновки');
-					CreateLab (7, val, labbutton)
-				break;
-				case 2:	
-					labbutton.push('Постановка задачі', 'Списки', 'Ідентифікатори', 'Відступи, плаваючі елементи', 'Селектори тегу і класу', 'Інші селектори', 'Групування селекторів');
-					CreateLab (7, val, labbutton)
-				break;
-				case 3:			
-					labbutton.push('Тема/мета/Місце розташування', 'Зовн.вигляд макету', 'HTML-код макету', 'Розмітка за допомогою таблиці', 'Розмітка за допомогою плав. блоків', 'HTML-код FLEXBOX сторінки', 'CSS-код FLEXBOX сторінки', 'Висновки');
-					CreateLab (8, val, labbutton)
-				break;
-				case 4:
-					labbutton.push('Постановка задачі', 'URL посилання', 'Обробник події handler', 'Вставка <script>', 'Масиви (п.4)', 'Програма (п.6)', 'Висновки');
-					CreateLab (7, val, labbutton)
-				break;
-				case 5:
-					labbutton.push('Постановка задачі', 'Динамічні елементи (п.3)', 'Фотогалерея  UniteGallery', 'Слайдер фотографій', 'Слайдер відеоматеріалів', 'Кнопки соц.мереж', 'Інформери','Модуль для мультимедіа', 'Висновки');
-					CreateLab (9, val, labbutton)
-					break;
-				case 6:
-					labbutton.push('Тема/мета/посилання на GitHub', 'Динамічні елементи (п.3)', 'Установка Веб-серверу', 'Запит для перегляду', 'Кодування UTF-8', 'Зворотній зв`язок. Відображення дати', 'Висновки');
-					CreateLab (7, val, labbutton)
-					break;
-				case 7:
-					labbutton.push('Тема/Постановка', 'Інфологічні моделі', 'Датологічні моделі', 'Скріншоти сайту');
-					CreateLab (4, val, labbutton)
-					break;
-				case 8:
-					labbutton.push('Тема/Постановка', "Опис об'єктів предметної галузі для БД", 'Інфологічна модель. Опис', 'Датологічна модель. Опис. Зв`язки між таблицями', 'Реалізація в mySQL, phpMyAdmin', 'Введення, виведення, пошук даних в БД', 'SQL-запити іншого функціоналу сайту. Запис у файл.', 'Авторизація. Сесія.', 'Іконки для вибору мови. Кукі', 'Висновки');
-					CreateLab (10, val, labbutton)
-					break;
-				case 9:
-					labbutton.push('Тема/Постановка', "AJAX - запит", 'AJAX у власному сайті', 'Функціонал сайту', 'Порівнняння функц. першої та останньої лаби', 'Висновки');
-					CreateLab (6, val, labbutton)
-					break;
-				default:
-					button_amount = 1;
-					var Div = document.createElement("div");
-					Div.innerHTML = "<p>Пробач... Ми ще не зробили цю лабку!</p>";
-					container.appendChild(Div);
-					var Img = document.createElement("img");
-					Img.src = "images/proskura.jpg";
-					Img.width = "350";
-					container.appendChild(Img);
-					break;
-			}
-		}
-		
-		function CreateLab (butts, val, labbuton){
-			button_amount = butts;
-			for (k=0;k<button_amount;k++){
-				var input = document.createElement('input');
-				input.type = 'button';
-				input.id = k;
-				val=labbuton;
-				input.value = val[k];
-				input.onclick=function() {PartButtonClick(this.id)};							
-				container.appendChild(input);
-				container.appendChild(document.createElement('br'));
-			}	
-		}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collatz Conjecture Visualization</title>
 
-		function PartButtonClick (k){			
-			document.getElementById("infoutput").innerHTML = "";				
-			var img;
-			k++;
-			var imgSrc = "images/Lab" + current_lab + "/" + k + ".jpg";
-			// усе має бути представлено у зображеннях формату .jpg виду
-			// images/Labi/k.jpg
+  <!-- Include Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-			// де і - це номер лабораторної
-			//де k - це номер кнопки (в кожній ЛР різна к-ть кнопок!!!)
-			
-			// Наприклад images/Lab4/8.jpg
-			
-			img = new Image();
-			img.src = imgSrc;
-			document.getElementById('infoutput').appendChild(img);
-		}
-	  </script>
- </body>
+  <!-- Bootstrap CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 15px 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="display-4">Collatz Conjecture Visualization</h1>
+  <br/>
+  <div class="d-flex flex-row justify-content-center align-items-center w-50 mx-auto">
+    <label for="inputNumber" class="form-label">Enter an integer:</label>
+    <input type="number" id="inputNumber" min="1" class="form-control mx-4" style="width: 200px;" required>
+    <button onclick="buildSequence()" class="btn btn-primary">Build Sequence</button>
+  </div>
+  <br/>
+  <div class="row">
+    <ul id="graphsList" class="col-2 list-group">
+
+    </ul>
+    <div class="col-10">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS via CDN (Optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/visual.js"></script>
+</body>
 </html>
