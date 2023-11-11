@@ -13,7 +13,7 @@ function createChart() {
                     position: 'bottom'
                 },
                 y: {
-                    type: 'linear',  // Use linear scale for y-axis
+                    type: 'linear',
                     position: 'left'
                     //min: 0,
                 }
@@ -150,7 +150,6 @@ function buildSequence() {
     const graph = new CollatzGraph(parsedInput, getRandomColor());
     graphs.push(graph);
 
-    // Add the new dataset to the existing chart
     chart.data.datasets.push({
         label: `Collatz(${parsedInput})`,
         borderColor: graph.color,
