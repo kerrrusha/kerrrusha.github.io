@@ -1,6 +1,6 @@
 function createChart() {
     const ctx = document.getElementById('myChart').getContext('2d');
-    chart = new Chart(ctx, {
+    return new Chart(ctx, {
         type: 'line',
         data: {
             labels: [],
@@ -20,8 +20,6 @@ function createChart() {
             }
         }
     });
-    Chart.defaults.elements.point.radius = 0;
-    return chart;
 }
 
 function deleteGraphFromArray(graphToDelete) {
@@ -158,6 +156,7 @@ function buildSequence() {
         borderColor: graph.color,
         borderWidth: 1,
         data: graph.sequence,
+        pointRadius: 0,
     });
     updateLabels();
 
