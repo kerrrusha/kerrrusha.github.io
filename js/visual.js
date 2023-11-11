@@ -15,7 +15,6 @@ function createChart() {
                 y: {
                     type: 'linear',
                     position: 'left'
-                    //min: 0,
                 }
             }
         }
