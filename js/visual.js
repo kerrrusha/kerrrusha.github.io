@@ -1,6 +1,6 @@
 function createChart() {
     const ctx = document.getElementById('myChart').getContext('2d');
-    return new Chart(ctx, {
+    chart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: [],
@@ -20,6 +20,8 @@ function createChart() {
             }
         }
     });
+    Chart.defaults.elements.point.radius = 0;
+    return chart;
 }
 
 function deleteGraphFromArray(graphToDelete) {
