@@ -135,24 +135,32 @@ function graphExists(parsedInput) {
 }
 
 function buildSequence() {
-    const inputNumber = document.getElementById('inputNumber').value;
-    const parsedInput = parseInt(inputNumber);
+    let inputValue;
 
-    if (isNaN(parsedInput)) {
+    const selectedValue = getSelectedModeValue();
+    if (selectedValue === 'default') {
+        inputValue = parseInt(document.getElementById('inputValueDefault').value);
+    } else if (selectedValue === 'binary') {
+        inputValue = document.getElementById('inputValuePowerOfTwo').value;
+        inputValue = parseInt(inputValue);
+        inputValue = Math.pow(2, inputValue);
+    }
+
+    if (isNaN(inputValue)) {
         alert('Please enter a valid integer.');
         return;
     }
-    if (graphExists(parsedInput)) {
+    if (graphExists(inputValue)) {
         alert('Such graph already exists.');
         return;
     }
 
-    const graph = new CollatzGraph(parsedInput, getRandomColor());
+    const graph = new CollatzGraph(inputValue, getRandomColor());
     graphs.push(graph);
 
     // Add the new dataset to the existing chart
     chart.data.datasets.push({
-        label: `Collatz(${parsedInput})`,
+        label: `Collatz(${inputValue})`,
         borderColor: graph.color,
         borderWidth: 1,
         data: graph.sequence,
@@ -195,5 +203,25 @@ class CollatzGraph {
     }
 }
 
+function getSelectedModeValue() {
+    const selectMode = document.getElementById('input-mode-select');
+    return selectMode.value;
+}
+
+function changeInputMode() {
+    const inputDefault = document.getElementById('input-default');
+    const inputBinary = document.getElementById('input-binary');
+
+    const selectedValue = getSelectedModeValue();
+    if (selectedValue === 'default') {
+        inputDefault.style.display = 'block';
+        inputBinary.style.display = 'none';
+    } else if (selectedValue === 'binary') {
+        inputDefault.style.display = 'none';
+        inputBinary.style.display = 'block';
+    }
+}
+
+changeInputMode();
 let chart = createChart();
 let graphs = [];
