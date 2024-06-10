@@ -13,7 +13,7 @@ function createChart() {
                     position: 'bottom'
                 },
                 y: {
-                    type: 'linear',  // Use linear scale for y-axis
+                    type: 'linear',
                     position: 'left'
                     //min: 0,
                 }
